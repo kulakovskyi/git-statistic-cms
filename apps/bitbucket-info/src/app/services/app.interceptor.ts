@@ -47,7 +47,7 @@ export const AppInterceptor: HttpInterceptorFn = (req, next) => {
   function prepareHeaders(request: HttpRequest<unknown>) {
     let headers: HttpHeaders = request.headers;
 
-    if (!headers.get('no-auth')) {
+    if (!headers.get('no-auth') && token) {
       headers = headers.append('Authorization', 'Bearer ' + token);
     } else {
       headers = headers.delete('no-auth');
