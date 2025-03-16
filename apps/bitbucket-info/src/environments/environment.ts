@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://zlinkcheck.com/api-n/',
-  //apiUrl: 'https://fav-prom.com/api-cms/',
-  token: 'authTokenDomainsClient',
+  apiUrl: 'https://api.bitbucket.org/2.0/',
+  authUrl: 'https://bitbucket.org/site/oauth2/',
+  redirectUri: 'http://localhost:4200/token',
+  token: 'authTokenBitbucketClient',
 };

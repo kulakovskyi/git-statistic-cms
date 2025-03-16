@@ -17,12 +17,13 @@
         "tsConfig": "apps/bitbucket-info/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
+          "apps/bitbucket-info/src/assets",
           {
             "glob": "**/*",
             "input": "apps/bitbucket-info/public"
           }
         ],
-        "styles": ["apps/bitbucket-info/src/styles.scss"],
+        "styles": ["apps/bitbucket-info/src/styles.scss", "libs/ui-kit/src/lib/styles/styles.scss"],
         "scripts": []
       },
       "configurations": {
