@@ -1,0 +1,7 @@
+<label class="flex gap-1 mb-2" [class]="class()"
+  ><ng-content></ng-content>:<i
+    *ngIf="required()"
+    style="font-size: 0.5rem"
+    class="pi pi-asterisk text-red-500"
+  ></i
+></label>

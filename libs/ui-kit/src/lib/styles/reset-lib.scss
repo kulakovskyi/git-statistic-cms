@@ -1,0 +1,44 @@
+
+.p-password{
+  width: 100%;
+}
+
+.p-autocomplete{
+  width: 100%;
+  input{
+    padding-left: 2.25rem !important;
+  }
+}
+
+.card-auth {
+  border-radius: 56px;
+  padding: 0.3rem;
+  background: linear-gradient(
+      180deg,
+      var(--primary-color) 10%,
+      var(--primary-color) 30%
+  );
+  width: 40rem;
+  @media screen and (max-width: 640px) {
+    width: 100%;
+    min-width: calc(100vw - 4rem);
+  }
+}
+
+.border-53 {
+  border-radius: 53px
+}
+
+
+.apexcharts-tooltip.apexcharts-theme-light{
+  background: var(--surface-card) !important;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title{
+  background: var(--surface-card) !important;
+}
+
+.apexcharts-menu.apexcharts-menu-open{
+  background: var(--surface-card) !important;
+}
+

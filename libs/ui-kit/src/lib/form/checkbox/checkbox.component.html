@@ -1,0 +1,21 @@
+<div class="flex items-center gap-1 cursor-pointer">
+  <p-checkbox
+    *ngIf="control()"
+    [formControl]="formControl"
+    [inputId]="name()"
+    [class]="class()"
+    [binary]="true"
+    (onChange)="selectChangeCheckbox($event)"
+  />
+
+  <p-checkbox
+    *ngIf="!control()"
+    [(ngModel)]="modelInput"
+    [class]="class()"
+    [inputId]="name()"
+    [binary]="true"
+    (onChange)="selectChangeCheckbox($event)"
+  />
+
+  <label [for]="name()" class="ml-2 cursor-pointer">{{ label() }}</label>
+</div>

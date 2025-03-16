@@ -1,0 +1,55 @@
+<div class="grid formgrid p-fluid">
+  <div class="field mb-4 col-12">
+    <ui-avatar
+      [image]="
+        'https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg'
+      "
+      [isLoading]="false"
+      [modalClearImageTitle]="'Delete Profile Image?'"
+      [modalClearImageDescription]="
+        'Are you sure you want to delete the profile image?'
+      "
+    ></ui-avatar>
+  </div>
+  <div class="field mb-3 col-12">
+    <ui-label required>Full Name</ui-label>
+    <ui-input
+      [label]="'Full Name'"
+      [type]="'text'"
+      [icon]="'pi-user-edit'"
+    ></ui-input>
+  </div>
+  <div class="field mb-3 col-12">
+    <ui-label required>Email</ui-label>
+    <ui-input
+      [label]="'Email'"
+      [type]="'email'"
+      [icon]="'pi-at'"
+      [noSpaces]="true"
+    ></ui-input>
+  </div>
+  <div class="field mb-3 col-12">
+    <ui-label>Position</ui-label>
+    <ui-input
+      [label]="'Position'"
+      [type]="'position'"
+      [icon]="'pi-megaphone'"
+    ></ui-input>
+  </div>
+  <div class="field mb-6 col-12">
+    <ui-label>Division</ui-label>
+    <ui-input
+      [label]="'Division'"
+      [type]="'division'"
+      [icon]="'pi-building-columns'"
+    ></ui-input>
+  </div>
+
+  <div class="col-12">
+    <ui-button
+      [icon]="'pi-check-square'"
+      [label]="'Submit'"
+      [class]="'w-full'"
+    ></ui-button>
+  </div>
+</div>

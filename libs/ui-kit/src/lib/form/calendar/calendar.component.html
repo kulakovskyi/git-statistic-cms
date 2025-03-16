@@ -1,0 +1,52 @@
+<p-datePicker
+  *ngIf="control() && !range()"
+  [inputId]="'calendar'"
+  [showIcon]="true"
+  [formControl]="formControl"
+  [ngClass]="{
+    'ng-invalid': formControl.invalid,
+    'border-200': formControl.valid,
+  }"
+  [appendTo]="'body'"
+  [dateFormat]="DATE_FORMAT_MIN"
+  [showTime]="showTime()"
+  [placeholder]="label()"
+  [firstDayOfWeek]="1"
+  [style]="{ width: '100%' }"
+></p-datePicker>
+
+<p-datePicker
+  *ngIf="!control() && !range()"
+  [inputId]="'calendar'"
+  [maxDate]="maxDate()"
+  [appendTo]="'body'"
+  [showIcon]="true"
+  [(ngModel)]="currentDate"
+  (onSelect)="onDateChange($event)"
+  [dateFormat]="DATE_FORMAT_MIN"
+  [firstDayOfWeek]="1"
+  [showTime]="showTime()"
+  [placeholder]="label()"
+  [style]="{ width: '100%' }"
+></p-datePicker>
+
+<p-datePicker
+  *ngIf="range()"
+  [inputId]="'calendar'"
+  [maxDate]="maxDate()"
+  [appendTo]="'body'"
+  [selectionMode]="'range'"
+  [showIcon]="true"
+  [(ngModel)]="rangeDates"
+  [dateFormat]="DATE_FORMAT_MIN"
+  [firstDayOfWeek]="1"
+  [placeholder]="label()"
+  [showTime]="showTime()"
+  [style]="{ width: '100%' }"
+  (onSelect)="onDateRangeChange()"
+></p-datePicker>
+
+<ui-validation-message
+  *ngIf="formControl && !skipValidation() && control()?.touched"
+  [control]="control()!"
+></ui-validation-message>

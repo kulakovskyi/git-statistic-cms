@@ -1,0 +1,68 @@
+<ng-container *ngIf="!multiselect()">
+  <p-select
+    *ngIf="control()"
+    [optionLabel]="'label'"
+    [optionValue]="'value'"
+    [filterBy]="'label'"
+    [appendTo]="'body'"
+    [style.pointerEvents]="disabled() ? 'none' : 'auto'"
+    [options]="options()"
+    [formControl]="formControl"
+    [filter]="filter()"
+    [placeholder]="label()"
+    [style]="{ width: '100%', textAlign: 'left' }"
+    (onChange)="onChange($event)"
+  ></p-select>
+  <p-select
+    *ngIf="!control()"
+    [optionLabel]="'label'"
+    [optionValue]="'value'"
+    [appendTo]="'body'"
+    [filterBy]="'label'"
+    [options]="options()"
+    [disabled]="disabled()"
+    [style.pointerEvents]="disabled() ? 'none' : 'auto'"
+    [(ngModel)]="modelInput"
+    [filter]="filter()"
+    [placeholder]="label()"
+    [style]="{ width: '100%' }"
+    (onChange)="onChange($event)"
+  ></p-select>
+</ng-container>
+<ng-container *ngIf="multiselect()">
+  <p-multiSelect
+    *ngIf="control()"
+    [optionLabel]="'label'"
+    [optionValue]="'value'"
+    [appendTo]="'body'"
+    [filterBy]="'label'"
+    [style.pointerEvents]="disabled() ? 'none' : 'auto'"
+    [options]="options()"
+    [maxSelectedLabels]="2"
+    [formControl]="formControl"
+    [filter]="filter()"
+    [placeholder]="label()"
+    [style]="{ width: '100%' }"
+    (onChange)="onChange($event)"
+  ></p-multiSelect>
+
+  <p-multiSelect
+    *ngIf="!control()"
+    [optionLabel]="'label'"
+    [optionValue]="'value'"
+    [appendTo]="'body'"
+    [filterBy]="'label'"
+    [disabled]="disabled()"
+    [style.pointerEvents]="!!disabled() ? 'none' : 'auto'"
+    [options]="options()"
+    [maxSelectedLabels]="2"
+    [(ngModel)]="modelInput"
+    [filter]="filter()"
+    [placeholder]="label()"
+    [style]="{ width: '100%' }"
+    (onChange)="onChange($event)"
+  />
+</ng-container>
+<div *ngIf="formControl && !skipValidation() && control()?.touched">
+  <ui-validation-message [control]="control()!"></ui-validation-message>
+</div>

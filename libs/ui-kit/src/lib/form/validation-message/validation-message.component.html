@@ -1,0 +1,12 @@
+<ng-container
+  *ngIf="
+    ((statusChanges$ | async) || (control['touched'] && errorMessageKey)) &&
+    !showImmediately
+  "
+>
+  <small class="text-red-600">{{ errorMessageKey }}.</small>
+</ng-container>
+
+<div *ngIf="((statusChanges$ | async) || errorMessageKey) && showImmediately">
+  <small class="p-error">{{ errorMessageKey }}.</small>
+</div>

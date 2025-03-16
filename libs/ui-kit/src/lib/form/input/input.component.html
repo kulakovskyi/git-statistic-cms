@@ -1,0 +1,38 @@
+<p-iconfield>
+  <p-inputicon *ngIf="icon()" class="pi" [ngClass]="icon()" />
+  <input
+    *ngIf="control()"
+    pInputText
+    class="w-full"
+    [type]="type()"
+    [class.disabled]="disabled()"
+    [placeholder]="label()"
+    [corePositiveNumbers]="noNegative()"
+    [formControl]="formControl"
+    [class]="class()"
+    [ngClass]="{
+      'ng-invalid': formControl.invalid,
+      'border-200': formControl.valid,
+    }"
+    [coreNoSpaces]="noSpaces()"
+    [attr.autofocus]="null"
+    [readonly]="disabled()"
+  />
+  <input
+    *ngIf="!control()"
+    pInputText
+    class="w-full"
+    [type]="type()"
+    [placeholder]="label()"
+    [corePositiveNumbers]="noNegative()"
+    [coreNoSpaces]="noSpaces()"
+    [class.disabled]="disabled()"
+    [(ngModel)]="modelInput"
+    [attr.autofocus]="null"
+    [readonly]="disabled()"
+  />
+</p-iconfield>
+
+<div *ngIf="formControl && !skipValidation() && control()?.touched">
+  <ui-validation-message [control]="control()!"></ui-validation-message>
+</div>

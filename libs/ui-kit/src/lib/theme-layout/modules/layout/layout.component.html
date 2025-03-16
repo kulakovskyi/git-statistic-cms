@@ -1,0 +1,9 @@
+<div class="layout-wrapper" [ngClass]="containerClass">
+  <ng-content select="[topbar]"></ng-content>
+  <ui-menu [model]="model"></ui-menu>
+  <div class="layout-main-container">
+    <div class="layout-main"><ng-content select="[main]"></ng-content></div>
+    <div class="layout-footer"><ng-content select="[footer]"></ng-content></div>
+  </div>
+  <div (click)="hideMenu()" class="layout-mask animate-fadein"></div>
+</div>

@@ -1,0 +1,10 @@
+<a
+  [routerLink]="routerLink()"
+  [routerLinkActive]="routerLink() ? 'text-primary-500' : ''"
+  [routerLinkActiveOptions]="{ exact: true }"
+  [class]="class()"
+  class="item flex items-center text-color transition-all hover:text-primary"
+>
+  <i *ngIf="icon()" [class]="'pi pi-fw mr-2 ' + icon()"></i>
+  <span>{{ text() }}</span>
+</a>

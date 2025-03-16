@@ -1,0 +1,29 @@
+<div class="flex gap-2 flex-wrap">
+  <ui-popover>
+    <div class="icon">
+      <ui-button [icon]="'pi-plus'"></ui-button>
+    </div>
+    <div class="content">
+      <div class="flex gap-2">
+        <ui-input
+          [label]="'Enter tag name'"
+          [control]="form.controls['tag']"
+          (keyup.enter)="addTag()"
+        ></ui-input>
+        <ui-button
+          [disabled]="form.invalid"
+          [icon]="'pi-plus'"
+          (click)="addTag()"
+        ></ui-button>
+      </div>
+    </div>
+  </ui-popover>
+  <div class="flex gap-2 flex-wrap">
+    <ui-chip
+      *ngFor="let tag of tags()"
+      [label]="tag"
+      [removable]="true"
+      (remove)="removeTag(tag)"
+    ></ui-chip>
+  </div>
+</div>

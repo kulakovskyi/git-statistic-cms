@@ -1,0 +1,7 @@
+<a pRipple class="cursor-pointer" (click)="op.toggle($event)">
+  <ng-content select=".icon"></ng-content>
+</a>
+
+<p-popover #op>
+  <ng-content select=".content"></ng-content>
+</p-popover>

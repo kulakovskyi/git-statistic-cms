@@ -1,0 +1,7 @@
+<p-chip
+  [label]="label()"
+  [removable]="removable()"
+  [styleClass]="class() + 'border-solid border-primary border'"
+  [icon]="icon() ? 'pi ' + icon() : ''"
+  (onRemove)="remove.emit($event)"
+/>

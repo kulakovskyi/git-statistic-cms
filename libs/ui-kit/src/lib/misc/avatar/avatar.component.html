@@ -1,0 +1,21 @@
+<div [class]="class()" class="avatar-container">
+  <img [src]="image()" alt="avatar" class="avatar-image" />
+  <div class="upload-button">
+    <label for="loadImage" class="btn-icon-edit">
+      <ui-button [icon]="'pi-pencil'" class="pointer-events-none"></ui-button>
+    </label>
+    <input
+      class="hidden"
+      type="file"
+      accept="image/*"
+      id="loadImage"
+      (change)="onFileSelected($event)"
+    />
+  </div>
+  <label class="btn-icon-delete" (click)="removeImage()">
+    <ui-button [severity]="'danger'" [icon]="'pi-times'"></ui-button>
+  </label>
+  <div *ngIf="isLoading()" class="loader">
+    <ui-loader></ui-loader>
+  </div>
+</div>

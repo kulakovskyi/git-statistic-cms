@@ -1,0 +1,26 @@
+<ul class="list-none m-0 p-0">
+  <li class="mb-3">
+    <ui-button
+      [label]="'General'"
+      [icon]="'pi-info-circle'"
+      [class]="'w-full justify-start'"
+      [routerLink]="'/' + PAGE_ROUTES.PROFILE"
+    ></ui-button>
+  </li>
+  <li class="mb-3">
+    <ui-button
+      [label]="'Change password'"
+      [icon]="'pi-key'"
+      [class]="'w-full'"
+      [routerLink]="PAGE_ROUTES.CHANGE_PASSWORD"
+    ></ui-button>
+  </li>
+  <li>
+    <ui-button
+      [label]="'Telegram token'"
+      [icon]="'pi-telegram'"
+      [class]="'w-full'"
+      [routerLink]="PAGE_ROUTES.TELEGRAM"
+    ></ui-button>
+  </li>
+</ul>

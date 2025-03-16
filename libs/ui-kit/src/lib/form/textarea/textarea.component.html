@@ -1,0 +1,25 @@
+<textarea
+  *ngIf="control()"
+  class="w-full text-color-secondary surface-50 border-200 textarea"
+  rows="6"
+  pTextarea
+  [placeholder]="label()"
+  [formControl]="formControl"
+  [class]="class()"
+  [ngClass]="{
+    'ng-invalid': formControl.invalid,
+    'border-200': formControl.valid,
+  }"
+></textarea>
+<textarea
+  *ngIf="!control()"
+  class="w-full text-color-secondary surface-50 border-200 textarea"
+  rows="6"
+  pTextarea
+  [placeholder]="label()"
+  [class]="class()"
+></textarea>
+
+<div *ngIf="formControl && !skipValidation() && control()?.touched">
+  <ui-validation-message [control]="control()!"></ui-validation-message>
+</div>

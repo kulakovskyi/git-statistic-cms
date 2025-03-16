@@ -1,0 +1,29 @@
+<h2
+  class="pt-5 text-xl font-semibold mb-2 flex justify-between gap-2 items-center"
+>
+  {{ header }}
+  <ui-button
+    [icon]="'pi-times'"
+    [size]="'small'"
+    (click)="closeModal()"
+  ></ui-button>
+</h2>
+<div class="text-base line-height-3 mb-5">
+  {{ description }}
+</div>
+<div class="flex gap-3">
+  <ui-button
+    [label]="'Cancel'"
+    [class]="' w-full'"
+    [ngClass]="'w-full'"
+    (click)="closeModal()"
+  ></ui-button>
+  <ui-button
+    [label]="'Delete'"
+    [class]="' w-full'"
+    [icon]="'pi pi-times'"
+    [severity]="'danger'"
+    [ngClass]="'w-full'"
+    (click)="submit()"
+  ></ui-button>
+</div>

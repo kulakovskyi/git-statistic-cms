@@ -1,0 +1,20 @@
+<div class="relative">
+  <i
+    class="pi text-sm z-10 absolute cursor-pointer icon-search"
+    [class]="icon()"
+  ></i>
+  <p-autoComplete
+    [suggestions]="filteredCountries"
+    [placeholder]="'Search'"
+    [optionLabel]="'label'"
+    [inputStyleClass]="'pl-5 w-full'"
+    (completeMethod)="filterCountry($event)"
+    (onSelect)="selectedItem.emit($event.value)"
+  >
+    <ng-template let-item pTemplate="item">
+      <a class="flex align-items-center gap-2 p-3 text-900">
+        <div>{{ item.label }}</div>
+      </a>
+    </ng-template>
+  </p-autoComplete>
+</div>
