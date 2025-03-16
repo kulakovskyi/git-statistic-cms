@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BitBucketApiService } from '@api/bitbucket-api.service';
 import {
   AccessTokenResponseDto,
@@ -6,7 +6,7 @@ import {
   LoginBitbucketDto,
 } from '@globalTypes/bitbucket-dto';
 import { LOCAL_STORAGE } from '@enums/local-storadge.enum';
-import { finalize, Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { environment } from '@environment/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
@@ -15,7 +15,6 @@ import { DynamicLoaderService } from '@services/dynamic-loader.serice';
 @Injectable()
 export class AuthService {
   private authLocalStorageToken = `${environment.token}`;
-  isLoadingLoginBitbucket = signal(false);
 
   constructor(
     private bitBucketApiService: BitBucketApiService,
@@ -61,7 +60,6 @@ export class AuthService {
       grant_type: LOCAL_STORAGE.AUTHORIZATION_CODE,
       redirect_uri: environment.redirectUri,
     };
-    this.isLoadingLoginBitbucket.set(true);
     return this.bitBucketApiService.getAccessToken(data).pipe(
       tap((response: AccessTokenResponseDto) => {
         this.setAuthFromLocalStorage(
@@ -71,7 +69,6 @@ export class AuthService {
         );
         this.loadAndNavigateToAuthModule().then();
       }),
-      finalize(() => this.isLoadingLoginBitbucket.set(false)),
     );
   }
 
@@ -85,7 +82,6 @@ export class AuthService {
         .refreshAccessToken(refreshToken, {
           client_id: consumerData.clientId,
           client_secret: consumerData.clientSecret,
-          code: '',
           redirect_uri: environment.redirectUri,
           grant_type: LOCAL_STORAGE.REFRESH_TOKEN,
         })

@@ -36,8 +36,8 @@ export class BitbucketService {
     return this.http.get<any>(url);
   }
 
-  private clientId = 'es5jfQmdWyUwjab8yX'; // Ваш client_id
-  private clientSecret = '9h89WFWZddhP2wsZU5rp6WNsnue2h5vZ'; // Ваш client_secret
+  private clientId = ''; // Ваш client_id
+  private clientSecret = ''; // Ваш client_secret
   private redirectUri = 'http://localhost:4200/token'; // Ваш redirect_uri
 
   // Шаг 1: Перенаправление пользователя на страницу авторизации

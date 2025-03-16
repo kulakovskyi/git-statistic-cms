@@ -4,6 +4,7 @@ import {
   AccessTokenResponseDto,
   GetAccessTokenDto,
   LoginBitbucketDto,
+  RefreshTokenDto,
 } from '@globalTypes/bitbucket-dto';
 import { environment } from '@environment/environment';
 import { Observable } from 'rxjs';
@@ -33,7 +34,7 @@ export class BitBucketApiService {
 
   refreshAccessToken(
     refreshToken: string,
-    body: GetAccessTokenDto,
+    body: RefreshTokenDto,
   ): Observable<AccessTokenResponseDto> {
     const params = this.createBody({
       grant_type: 'refresh_token',

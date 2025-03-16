@@ -11,6 +11,13 @@ export interface GetAccessTokenDto {
   grant_type: string;
 }
 
+export interface RefreshTokenDto {
+  client_id: string;
+  client_secret: string;
+  redirect_uri: string;
+  grant_type: string;
+}
+
 export interface AccessTokenResponseDto {
   access_token: string;
   expires_in: number;
